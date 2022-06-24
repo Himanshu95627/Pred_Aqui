@@ -1,3 +1,5 @@
+from pathlib import Path
+import os
 import numpy as np
 import pandas as pd
 import time
@@ -6,16 +8,16 @@ import sklearn
 import geopy.geocoders
 import joblib
 from geopy.geocoders import Nominatim
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 # reading the models
-logistic_01=joblib.load('ml_utils\ML_models\Logistic_regression_01.pkl')
-scaler_logistic_01 = joblib.load("ml_utils\ML_models\logistic_regression_scaler_01.pkl")
+logistic_01=joblib.load(os.path.join(BASE_DIR,'ml_utils\ML_models\Logistic_regression_01.pkl'))
+scaler_logistic_01 = joblib.load(os.path.join(BASE_DIR,"ml_utils\ML_models\logistic_regression_scaler_01.pkl"))
 
-running_model = joblib.load('ml_utils\ML_models\BestModel_RunningStartups.pkl')
-running_scaler = joblib.load('ml_utils\ML_models\RunningStartups_scaler.pkl')
+running_model = joblib.load(os.path.join(BASE_DIR,'ml_utils\ML_models\BestModel_RunningStartups.pkl'))
+running_scaler = joblib.load(os.path.join(BASE_DIR,'ml_utils\ML_models\RunningStartups_scaler.pkl'))
 
-colsed_model = joblib.load('ml_utils\ML_models\BestModel_closed_startups.pkl')
-closed_scaler = joblib.load('ml_utils\ML_models\Closed_startups_scaler.pkl')
+colsed_model = joblib.load(os.path.join(BASE_DIR,'ml_utils\ML_models\BestModel_closed_startups.pkl'))
+closed_scaler = joblib.load(os.path.join(BASE_DIR,'ml_utils\ML_models\Closed_startups_scaler.pkl'))
 
 def pre_process(data):
     print(data)
