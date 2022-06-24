@@ -8,7 +8,7 @@ def index(request):
     context={
         'a':'himanshu yadav will deploy model in less than two hours'
     }
-    return render(request,'index.html',context)
+    return render(request,'index.HTML',context)
 
 def predict(request):
     
@@ -17,4 +17,4 @@ def predict(request):
             'status':pre_process(request.POST.dict())
         }
     
-    return render(request,'index.html', context)
+    return render(request,'index.HTML', context)
