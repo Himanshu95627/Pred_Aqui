@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="name">Name of startup</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="country_code">Country:</label>
+
+        <select name="country_code" id="country_code">
+        <option value="USA">USA</option>
+        <option value="GBR">GBR</option>
+        <option value="IND">IND</option>
+        <option value="CAN">CAN</option>
+        <option value="DEU">DEU</option>
+        <option value="FRA">FRA</option>
+        <option value="AUS">AUS</option>
+        <option value="ESP">ESP</option>
+        <option value="ISR">ISR</option>
+        <option value="NLD">NLD</option>
+        <option value="Other">Others</option>
+        </select>
+        
+    </div>
+    <div>
+        <label for="catogery_code">Catogery:</label>
+
+        <select name="catogery_code" id="catogery_code">
+        <option value="OTHER">Others</option>
+        <option value="SOFTWARE">Software</option>
+        <option value="WEB">Web</option>
+        <option value="ECOMMERCE">Ecommerce</option>
+        <option value="ADVERTISING">Advertising</option>
+        <option value="MOBILE">Mobile</option>
+        <option value="CONSULTING">Consulting</option>
+        <option value="GAMES_VIDEO">Video Games</option>
+        <option value="ENTERPRISE">Enterprise</option>
+        <option value="BIOTECH">Biotech</option>
+        <option value="PUBLIC_RELATIONS">Public Relations</option>
+        <option value="HARDWARE">Hardware</option>
+        <option value="NETWORK_HOSTING">Network Hosting</option>
+        <option value="EDUCATION">Education</option>
+        <option value="SEARCH">Search</option>
+        </select>
+    </div>
+    <div>
+        <label for="state_code">State code</label>
+        <input type="text" name="state_code" id="state_code">
+    </div>
+    {% comment %} <div> how to do it for active days
+        <label for=""></label>
+    </div> {% endcomment %}
+    <div>
+        <label for="founded_at_year">Founding Year</label>
+        <input type="text" name="founded_at_year" id="founded_at_year">
+    </div>
+    <div>
+        <label for="first_funding_at_year">First funding year</label>
+        <input type="text" name="first_funding_at_year" id="first_funding_at_year">
+    </div>
+    <div>
+        <label for="last_funding_at_year">Last funding year</label>
+        <input type="text" name="last_funding_at_year" id="last_funding_at_year">
+    </div>
+    <div>
+        <label for="first_milestone_at_year">First milestone achieved in year: </label>
+        <input type="text" name="first_milestone_at_year" id="first_milestone_at_year">
+    </div>
+    <div>
+        <label for="last_milestone_at_year">Last milestone achieved in year: </label>
+        <input type="text" name="last_milestone_at_year" id="last_milestone_at_year">
+    </div>
+    <div>
+        <label for="funding_rounds">No of funding rounds: </label>
+        <input type="text" name="funding_rounds" id="funding_rounds">
+    </div>
+    <div>
+        <label for="funding_total_usd">Funding total in USD($): </label>
+        <input type="text" name="funding_total_usd" id="funding_total_usd">
+    </div>
+    <div>
+        <label for="milestones">Number of milestones: </label>
+        <input type="text" name="milestones" id="milestones">
+    </div>
+    <div>
+        <label for="relationships">relationships: </label>
+        <input type="text" name="relationships" id="relationships">
+    </div>
+    <div>
+        <label for="active_days">Active days: </label>
+        <input type="text" name="active_days" id="active_days">
+    </div>
+    <button type="submit">submit</button>
+    </form>
+</body>
+</html>

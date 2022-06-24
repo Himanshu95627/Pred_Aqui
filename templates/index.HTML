@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Startup aquisition prediction</title>
+
+</head>
+<body>
+    
+    <h1 style="text-align:center;margin-top: 3vh; color:darkblue; font-size: 200%; font-weight: bold; family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Inversters, let me predict you the aquisition status of startup</h1>
+    <form action="predict" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="container p-4" style="background-color: rgb(249, 249, 249);margin-top:2vh;">
+        <div class="row">
+            <div class="col">
+                <h4 style="text-align:center;">Please fill below details</h4>
+                <hr>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Startup Name</span>
+                    <input type="text" class="form-control" placeholder="Ex: Technocolabs" id="name"   aria-describedby="basic-addon1" name="name" required>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Choose Country</span>
+                    <select class="form-select"  name="country_code"id="country_code" aria-label="Choose Country Name" required>
+                    <option value="USA">USA</option>
+                    <option value="GBR">GBR</option>
+                    <option value="IND">IND</option>
+                    <option value="CAN">CAN</option>
+                    <option value="DEU">DEU</option>
+                    <option value="FRA">FRA</option>
+                    <option value="AUS">AUS</option>
+                    <option value="ESP">ESP</option>
+                    <option value="ISR">ISR</option>
+                    <option value="NLD">NLD</option>
+                    <option value="Other">Others</option>
+                  </select>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Choose Category</span>
+                    <select class="form-select" name="catogery_code" id="catogery_code" aria-label="Choose Country Name" required>
+                        <option value="SOFTWARE">Software</option>
+                        <option value="WEB">Web</option>
+                        <option value="ECOMMERCE">Ecommerce</option>
+                        <option value="ADVERTISING">Advertising</option>
+                        <option value="MOBILE">Mobile</option>
+                        <option value="CONSULTING">Consulting</option>
+                        <option value="GAMES_VIDEO">Video Games</option>
+                        <option value="ENTERPRISE">Enterprise</option>
+                        <option value="BIOTECH">Biotech</option>
+                        <option value="PUBLIC_RELATIONS">Public Relations</option>
+                        <option value="HARDWARE">Hardware</option>
+                        <option value="NETWORK_HOSTING">Network Hosting</option>
+                        <option value="EDUCATION">Education</option>
+                        <option value="SEARCH">Search</option>
+                        <option value="OTHER">Others</option>
+                  </select>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">State\City Code</span>
+                    <input type="text" class="form-control" placeholder="Ex: WA" id="state_code"  name="state_code" aria-describedby="basic-addon1" required>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Founding Year</span>
+                    <input type="text" class="form-control" placeholder="Ex: 1996" id="founded_at_year" name="founded_at_year"  aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">First Funding Year</span>
+                    <input type="text" class="form-control" placeholder="Ex: 1998" id="first_funding_at_year" name="first_funding_at_year"  aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Last Funding Year</span>
+                    <input type="text" class="form-control" placeholder="Ex: 2004" id="last_funding_at_year" name="last_funding_at_year"  aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">First Milestone achieved in year</span>
+                    <input type="text" class="form-control" placeholder="Ex: 1998" id="first_milestone_at_year" name="first_milestone_at_year"  aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Last Milestone achieved in year</span>
+                    <input type="text" class="form-control" placeholder="Ex: 2010" id="last_milestone_at_year" name="last_milestone_at_year"    aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Number of Funding Rounds</span>
+                    <input type="text" name="funding_rounds" class="form-control" placeholder="Ex: 3"   id="funding_rounds" name="funding_rounds" aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" placeholder="Funding total in USD" id="funding_total_usd" name="funding_total_usd"  aria-label="Amount (to the nearest dollar)" onkeypress="return onlyNumberKey(event)" required>
+                    <span class="input-group-text">.00</span>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Number of Milestones</span>
+                    <input type="text" class="form-control" placeholder="Ex: 5"   id="milestones" name="milestones" aria-describedby="basic-addon1"  onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Relationships</span>
+                    <input type="text" class="form-control" placeholder="Ex: 2"    id="relationships" name="relationships" aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+    
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Active Days</span>
+                    <input type="text" class="form-control" placeholder="Ex: 5235"   id="active_days" name="active_days" aria-describedby="basic-addon1" onkeypress="return onlyNumberKey(event)" required>
+                  </div>
+                <button type="submit" style="margin-left: 40%; background-color:darkblue; padding: 14px 40px; font-size: 16px;" class="btn btn-primary mt-2">Submit</button>
+            </div>
+            
+            {% comment %} <div class="col">
+                <h4 style="text-align:center; color:green">Results</h4>
+                <hr>
+                <div style="text-align:center; font-size:150%" >Predicted Class: <output class="Predicted">{{Actual}}</output></div>
+                <div style="text-align:center; font-size:150%">Actual Class: <output class="Actual">{{Predicted}}</output></div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+    </form>
+    {% if status %}
+    <div style="item-align:center">
+        <h1 style:"text-align:center; margin:auto;display:list-item;item-align:center">The status is : {{status}}</h1>
+    </div>
+    
+    {% endif %}
+</body>
+</html>
